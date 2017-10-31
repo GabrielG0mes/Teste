@@ -28,12 +28,15 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+<<<<<<< HEAD
 		
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
     <version>5.2.12.Final</version>
 </dependency>
+=======
+>>>>>>> ffb687d311081f09790cf4316d6afd4fc9bc4b94
 
 	</dependencies>
 </project>
