@@ -24,6 +24,8 @@ public class App {
 		session.beginTransaction();
 		// session.save(carro);
 
+		System.out.println("teste");
+
 		System.out.println(carro);
 
 		// List<Carro> carros = session.createQuery("from Carro").list();
