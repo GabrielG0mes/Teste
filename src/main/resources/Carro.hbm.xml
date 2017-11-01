@@ -1,13 +1,15 @@
 <?xml version="1.0"?> 
 <!DOCTYPE hibernate-mapping PUBLIC  
    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
-<hibernate-mapping package="com.atomikos.examples.hibernate.entities"> 
- 
-   <class name="Carro" table="`CARRO`"> 
-      <property name="nome" column="`NOME`"/> 
- 
-      <property name="valor" column="`VALOR`"/> 
-   </class> 
- 
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com">
+
+	<class name="Carro">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="nome" />
+		<property name="valor" />
+	</class>
+
 </hibernate-mapping>

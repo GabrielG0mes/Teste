@@ -2,6 +2,7 @@ package br.com;
 
 public class Carro {
 
+	private Long id;
 	private String nome;
 	private double valor;
 
@@ -19,6 +20,19 @@ public class Carro {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	@Override
+	public String toString() {
+		return "Carro [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
