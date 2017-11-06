@@ -27,10 +27,16 @@ public class App {
 		carro.setNome("Fusion");
 		carro.setValor(100000);
 
+<<<<<<< HEAD
 		// em.getTransaction().begin();
 		// em.persist(carro);
 		// em.getTransaction().commit();
 		// System.out.println("Novo carro inserido! Id: " + carro.getId());
+=======
+		System.out.println("teste");
+
+		System.out.println(carro);
+>>>>>>> 498f2f6b33d525e6b4cf68b5453a16aba07101aa
 
 		List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
 
