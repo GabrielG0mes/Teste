@@ -1,8 +1,11 @@
 package br.com;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,27 +21,47 @@ public class App {
 		System.out.println(carro.getNome());
 		System.out.println(carro.getValor());
 
-		SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("tabelafipe");
+		EntityManager em = emf.createEntityManager();
 
-		Session session = sf.openSession();
-		session.beginTransaction();
-		// session.save(carro);
+		carro.setNome("Fusion");
+		carro.setValor(100000);
 
-		System.out.println(carro);
+		// em.getTransaction().begin();
+		// em.persist(carro);
+		// em.getTransaction().commit();
+		// System.out.println("Novo carro inserido! Id: " + carro.getId());
 
-		// List<Carro> carros = session.createQuery("from Carro").list();
-		// carros.forEach(c -> System.out.println(c));
-		// System.out.println("tamanho: " + carros.size());
+		List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
 
-		carro = (Carro) session.load(Carro.class, 2l);
-		System.out.println(carro);
+		for (int i = 0; i < carros.size(); i++) {
+			System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
+		}
 
-		// carro.setNome("Astra");
+		em.close();
+		emf.close();
+
+		// SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		//
-		// session.save(carro);
-		// session.getTransaction().commit();
+		// Session session = sf.openSession();
+		// session.beginTransaction();
+		// // session.save(carro);
 		//
 		// System.out.println(carro);
+		//
+		// // List<Carro> carros = session.createQuery("from Carro").list();
+		// // carros.forEach(c -> System.out.println(c));
+		// // System.out.println("tamanho: " + carros.size());
+		//
+		// carro = (Carro) session.load(Carro.class, 2l);
+		// System.out.println(carro);
+		//
+		// // carro.setNome("Astra");
+		// //
+		// // session.save(carro);
+		// // session.getTransaction().commit();
+		// //
+		// // System.out.println(carro);
 
 	}
 }
