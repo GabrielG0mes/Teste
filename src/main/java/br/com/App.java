@@ -37,11 +37,19 @@ public class App {
 		// em.getTransaction().commit();
 		// System.out.println("Novo carro inserido! Id: " + carro.getId());
 
+<<<<<<< HEAD
 		// List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
 		//
 		// for (int i = 0; i < carros.size(); i++) {
 		// System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
 		// }
+=======
+		List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
+
+		for (int i = 0; i < carros.size(); i++) {
+			System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
+		}
+>>>>>>> a46cf6df7723ccf43ec4556eee2a26db586f7d2e
 
 		// em.close();
 		// emf.close();
