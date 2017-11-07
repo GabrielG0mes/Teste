@@ -1,5 +1,6 @@
 package br.com;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +11,11 @@ public class Carro {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Column
 	private String nome;
+
+	@Column
 	private double valor;
 
 	public String getNome() {

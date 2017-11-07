@@ -2,10 +2,6 @@ package br.com;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  */
 public class App {
+
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
 
@@ -21,31 +18,33 @@ public class App {
 		System.out.println(carro.getNome());
 		System.out.println(carro.getValor());
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("tabelafipe");
-		EntityManager em = emf.createEntityManager();
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("tabelafipe");
+		// EntityManager em = emf.createEntityManager();
 
-		carro.setNome("Fusion");
-		carro.setValor(100000);
+		CarroController carroController = context.getBean(CarroController.class);
+		carro.setNome("HB20");
+		carro.setValor(60000);
 
-<<<<<<< HEAD
+		// carroController.persistirCarro(carro);
+
+		List<Carro> carros = carroController.buscarTodosOsCarros();
+		for (int i = 0; i < carros.size(); i++) {
+			System.out.println(carros.get(i).getId() + " " + carros.get(i).getNome());
+		}
+
 		// em.getTransaction().begin();
 		// em.persist(carro);
 		// em.getTransaction().commit();
 		// System.out.println("Novo carro inserido! Id: " + carro.getId());
-=======
-		System.out.println("teste");
 
-		System.out.println(carro);
->>>>>>> 498f2f6b33d525e6b4cf68b5453a16aba07101aa
+		// List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
+		//
+		// for (int i = 0; i < carros.size(); i++) {
+		// System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
+		// }
 
-		List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
-
-		for (int i = 0; i < carros.size(); i++) {
-			System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
-		}
-
-		em.close();
-		emf.close();
+		// em.close();
+		// emf.close();
 
 		// SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		//
