@@ -22,13 +22,8 @@ public class App {
 		// EntityManager em = emf.createEntityManager();
 
 		CarroController carroController = context.getBean(CarroController.class);
-		carro.setNome("HB20");
-		carro.setValor(60000);
-
-
-		CarroController carroController = context.getBean(CarroController.class);
-		carro.setNome("HB20");
-		carro.setValor(60000);
+		carro.setNome("Fiesta");
+		carro.setValor(35000);
 
 		// carroController.persistirCarro(carro);
 
@@ -42,18 +37,11 @@ public class App {
 		// em.getTransaction().commit();
 		// System.out.println("Novo carro inserido! Id: " + carro.getId());
 
-
 		// List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
 		//
 		// for (int i = 0; i < carros.size(); i++) {
 		// System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
 		// }
-
-		List<Carro> carros = em.createQuery("select car from Carro car").getResultList();
-
-		for (int i = 0; i < carros.size(); i++) {
-			System.out.println(carros.get(i).getNome() + " " + carros.get(i).getValor());
-		}
 
 		// em.close();
 		// emf.close();
